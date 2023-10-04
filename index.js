@@ -1,5 +1,4 @@
-const PORT=5000;
-const MONGO_URL="mongodb+srv://takeshwar:62.66.00@cluster0.yv8kebj.mongodb.net/?retryWrites=true&w=majority";
+require('dotenv').config();
 const express = require("express");
 const cors=require("cors")
 const mongoose=require("mongoose")
@@ -7,6 +6,9 @@ const passwordRoute=require("./routes/passwordRoutes");
 const messageRoute=require("./routes/messageRoutes");
 const viewerRoute=require("./routes/viewerRoutes");
 const app=express();
+
+const PORT=process.env.PORT;
+const MONGO_URL=process.env.MONGO_URL;
 
 app.use(cors());
 app.use(express.json()); // **

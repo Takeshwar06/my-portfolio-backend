@@ -14,7 +14,7 @@ module.exports.getAllMessage=async(req,res,next)=>{
     try {
         const {Token}=req.body;
         if(Token==process.env.Token){
-            const data=await Message.find();
+            const data=await Message.find().sort({updatedAt:-1});;
             return res.json({success:true,data})
         }else{
             return res.json({success:false})
