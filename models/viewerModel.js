@@ -8,4 +8,4 @@ const viewerSchema=new mongoose.Schema({
        }
 })
 
-module.exports=mongoose.model("Viewer",viewerSchema);
+module.exports=mongoose.model("Viewers",viewerSchema);
