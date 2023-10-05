@@ -13,7 +13,7 @@ module.exports.sendMessage=async(req,res,next)=>{
 module.exports.getAllMessage=async(req,res,next)=>{
     try {
         const {Token}=req.body;
-        if(Token==process.env.Token){
+        if(Token==process.env.TOKEN){
             const data=await Message.find().sort({updatedAt:-1});;
             return res.json({success:true,data})
         }else{

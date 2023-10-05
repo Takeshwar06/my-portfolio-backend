@@ -7,8 +7,6 @@ const messageRoute=require("./routes/messageRoutes");
 const viewerRoute=require("./routes/viewerRoutes");
 const app=express();
 
-const PORT=process.env.PORT;
-const MONGO_URL=process.env.MONGO_URL;
 
 app.use(cors());
 app.use(express.json()); // **
@@ -20,7 +18,7 @@ app.use("/api/viewer",viewerRoute);
 
 
 // Connect to MongoDB (replace with your MongoDB connection URI)
-mongoose.connect(MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -32,6 +30,6 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-const server=app.listen(PORT,()=>{
-    console.log("server runing in port ",PORT);
+const server=app.listen(process.env.PORT,()=>{
+    console.log("server runing in port ",process.env.PORT);
 })

@@ -16,7 +16,7 @@ module.exports.authentication=async(req,res,next)=>{
 module.exports.authToken=async(req,res,next)=>{
     try {
         const {Token}=req.body;
-        if(Token==process.env.Token){
+        if(Token==process.env.TOKEN){
             return res.json({success:true})
         }else{
             return res.json({success:false})
