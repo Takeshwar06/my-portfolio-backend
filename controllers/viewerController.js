@@ -14,7 +14,7 @@ module.exports.getAllViewer=async(req,res,next)=>{
     try {
         const {Token}=req.body;
         if(Token==process.env.TOKEN){
-            const data=await Viewers.find();
+            const data=await Viewers.countDocuments();
            return res.json({success:true,data});
         }
         else{
